@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowledge Base Details - RAG Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d77a5b",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1f1613",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white/50 dark:bg-background-dark/50 backdrop-blur-md px-6 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block">database</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">RAG Engine</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Knowledge Base</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Deployments</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-primary/5 border border-primary/10 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all w-64" placeholder="Search documents..." type="text"/>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<img alt="User profile" data-alt="Minimalist user avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkix9ZqVcYL8Q-IOJD0vnm_VRQOuwBfXNt9TpuYQJ3SHd3ZeaeqabRXHskkz8EbvgV2kj0rVpP7kKyd3dASBblPB13JbSRKsUEbfgwV-5AZipe_Q--A5RWyQGW_TTmJ4C1OcpnmHnMGJw_SACSMXTnGs6TN4KnUX13k66kaUKxLFGuom0oyOzvxlf38SPS4NHP-EndDwos0Driksnfqjl68wb628ZWu8PDxpGX9eLRtJu2GWkfIEQk_jpmJ7Dr2nc2xlARtRvb5X4m"/>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+<a class="hover:text-primary transition-colors" href="#">Knowledge Bases</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Technical Documentation</span>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Technical Documentation</h1>
+<p class="text-slate-500 mt-2 max-w-2xl">Internal product manuals, API specifications, and infrastructure architecture diagrams for automated customer support grounding.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-primary/20 bg-white dark:bg-background-dark rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-lg">sync</span>
+                        Re-index All
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                        Add Source
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Content Area -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Stats / Details Grid -->
+<section class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white dark:bg-background-dark p-6 rounded-xl border border-primary/10 shadow-sm">
+<div class="space-y-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Embedding Model</span>
+<p class="text-sm font-bold text-slate-900 dark:text-white">text-embedding-3-small</p>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Chunk Size</span>
+<p class="text-sm font-bold text-slate-900 dark:text-white">512 tokens</p>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Overlap</span>
+<p class="text-sm font-bold text-slate-900 dark:text-white">50 tokens</p>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Total Vectors</span>
+<p class="text-sm font-bold text-slate-900 dark:text-white">12,482</p>
+</div>
+</section>
+<!-- Drag and Drop Area -->
+<section class="border-2 border-dashed border-primary/20 bg-primary/5 rounded-xl p-10 flex flex-col items-center justify-center text-center group cursor-pointer hover:border-primary/40 transition-all">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-background-dark border border-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">upload_file</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Upload new documents</h3>
+<p class="text-slate-500 text-sm mt-1 max-w-xs">Drag and drop PDF, MD, or TXT files here to expand your knowledge base.</p>
+<div class="mt-4 text-[11px] font-bold text-primary px-3 py-1 bg-primary/10 rounded-full uppercase tracking-widest">Max 25MB per file</div>
+</section>
+<!-- Documents Table -->
+<section class="bg-white dark:bg-background-dark rounded-xl border border-primary/10 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-primary/10 flex justify-between items-center">
+<h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">description</span>
+                                Indexed Documents
+                            </h3>
+<span class="text-xs font-medium text-slate-400">Showing 5 of 24 documents</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-900/50 text-[11px] uppercase tracking-wider text-slate-400 font-bold">
+<tr>
+<th class="px-6 py-3">Document Name</th>
+<th class="px-6 py-3">Status</th>
+<th class="px-6 py-3">Size</th>
+<th class="px-6 py-3">Last Synced</th>
+<th class="px-6 py-3 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">picture_as_pdf</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">API_Guide_v2.4.pdf</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                                Processed
+                                            </div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">2.4 MB</td>
+<td class="px-6 py-4 text-sm text-slate-500">2 mins ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">article</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">System_Architecture.md</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider">
+<span class="size-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Processing
+                                            </div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">128 KB</td>
+<td class="px-6 py-4 text-sm text-slate-500">Just now</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">picture_as_pdf</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Security_Whitepaper.pdf</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                                Processed
+                                            </div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">4.1 MB</td>
+<td class="px-6 py-4 text-sm text-slate-500">Yesterday</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors group text-opacity-50">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-300">error</span>
+<span class="text-sm font-medium text-slate-400">Draft_Specs_Obsolete.txt</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-bold uppercase tracking-wider">
+<span class="size-1.5 rounded-full bg-red-500"></span>
+                                                Failed
+                                            </div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-400">45 KB</td>
+<td class="px-6 py-4 text-sm text-slate-400">3 days ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">refresh</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-primary/10 bg-slate-50/50 dark:bg-slate-900/30 flex justify-center">
+<button class="text-xs font-bold text-primary hover:underline">View all 24 documents</button>
+</div>
+</section>
+</div>
+<!-- Sidebar Details -->
+<div class="space-y-6">
+<!-- Config Card -->
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-primary/10 shadow-sm">
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">settings</span>
+                            Configuration
+                        </h4>
+<div class="space-y-4">
+<div>
+<label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block mb-1">Knowledge Base ID</label>
+<div class="flex items-center justify-between gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded border border-primary/5">
+<code class="text-xs text-primary font-mono truncate">kb_98412_tech_docs</code>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined text-base">content_copy</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block mb-1">Created</label>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-200">Oct 12, 2023</p>
+</div>
+<div>
+<label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block mb-1">Visibility</label>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-200">Private</p>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-primary/10">
+<button class="w-full text-center text-sm font-bold text-red-500 hover:bg-red-50 py-2 rounded-lg transition-colors">Delete Knowledge Base</button>
+</div>
+</div>
+<!-- Usage Stats -->
+<div class="bg-gradient-to-br from-primary/10 to-transparent p-6 rounded-xl border border-primary/20 shadow-sm">
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">analytics</span>
+                            Platform Usage
+                        </h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs font-medium text-slate-500">Storage Limit</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">12% used</span>
+</div>
+<div class="w-full bg-white dark:bg-slate-800 rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 12%"></div>
+</div>
+<div class="pt-2">
+<p class="text-[10px] text-slate-500 leading-relaxed italic">Increasing your chunk size will reduce the total number of vectors but may decrease retrieval precision.</p>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-primary/10 shadow-sm">
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">bolt</span>
+                            Quick Actions
+                        </h4>
+<ul class="space-y-2">
+<li>
+<button class="w-full text-left px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">chat</span>
+                                    Test in Playground
+                                </button>
+</li>
+<li>
+<button class="w-full text-left px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">code</span>
+                                    Generate API Snippet
+                                </button>
+</li>
+<li>
+<button class="w-full text-left px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">settings_suggest</span>
+                                    Auto-Optimize Chunks
+                                </button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
