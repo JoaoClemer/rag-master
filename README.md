@@ -2,6 +2,8 @@
 
 Busca semântica em documentos PDF/TXT sem geração de resposta por LLM. O usuário sobe um arquivo, faz uma pergunta em linguagem natural e recebe os trechos mais similares semanticamente.
 
+![Frontend](Print%20Frontend.PNG)
+
 ## Stack
 
 | Camada | Tecnologia |
@@ -12,6 +14,21 @@ Busca semântica em documentos PDF/TXT sem geração de resposta por LLM. O usu�
 | Banco vetorial | Qdrant Cloud (free tier) |
 | Deploy frontend | Vercel |
 | Deploy backend | Render.com |
+
+---
+
+## Demo rápida
+
+Quer testar sem ter um documento pronto? O repositório inclui o arquivo `test_document.txt` — um texto sobre Inteligência Artificial e Busca Semântica com conteúdo variado que gera múltiplos chunks.
+
+**Sugestões de perguntas para testar:**
+
+- `o que são embeddings?`
+- `como funciona o processo de chunking?`
+- `qual a diferença entre busca semântica e busca tradicional?`
+- `o que é RAG?`
+- `como avaliar a qualidade da busca?`
+- `quem criou o transformer?`
 
 ---
 

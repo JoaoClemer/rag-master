@@ -1,0 +1,103 @@
+INTRODUÇÃO À INTELIGÊNCIA ARTIFICIAL E APRENDIZADO DE MÁQUINA
+
+A inteligência artificial (IA) é um campo da ciência da computação dedicado à criação de sistemas capazes de realizar tarefas que normalmente exigiriam inteligência humana. Essas tarefas incluem reconhecimento de fala, tomada de decisão, tradução de idiomas e percepção visual. O termo foi cunhado por John McCarthy em 1956, durante a Conferência de Dartmouth, considerada o marco fundador da área.
+
+Desde então, a IA evoluiu por ciclos de entusiasmo e desilusão, conhecidos como "invernos da IA", até chegar ao momento atual de avanço acelerado impulsionado pelo aumento da capacidade computacional, pela disponibilidade de grandes volumes de dados e por avanços em algoritmos de aprendizado profundo.
+
+
+APRENDIZADO DE MÁQUINA: CONCEITOS FUNDAMENTAIS
+
+O aprendizado de máquina (Machine Learning, ML) é um subcampo da IA que permite que sistemas aprendam e melhorem automaticamente a partir da experiência, sem serem explicitamente programados para cada tarefa. Em vez de seguir regras rígidas, os modelos de ML identificam padrões em dados e fazem previsões ou decisões com base nesses padrões.
+
+Existem três paradigmas principais no aprendizado de máquina. O primeiro é o aprendizado supervisionado, onde o modelo é treinado com pares de entrada e saída rotulados. O algoritmo aprende a mapear entradas para saídas corretas e, depois do treinamento, consegue generalizar para novos dados. Exemplos incluem classificação de e-mails como spam ou não spam, e previsão de preços de imóveis.
+
+O segundo paradigma é o aprendizado não supervisionado, onde o modelo recebe dados sem rótulos e deve encontrar estruturas ou padrões por conta própria. Técnicas comuns incluem clustering (agrupamento de dados semelhantes) e redução de dimensionalidade. Um exemplo prático é a segmentação de clientes em grupos com comportamentos similares.
+
+O terceiro paradigma é o aprendizado por reforço, onde um agente aprende através da interação com um ambiente, recebendo recompensas por ações corretas e penalidades por ações incorretas. Essa abordagem foi fundamental para o desenvolvimento de sistemas como o AlphaGo, que derrotou campeões mundiais de Go.
+
+
+REDES NEURAIS ARTIFICIAIS
+
+As redes neurais artificiais são modelos computacionais inspirados na estrutura do cérebro humano. São compostas por camadas de nós interconectados, chamados neurônios artificiais, que processam informações e transmitem sinais entre si. Cada conexão possui um peso que é ajustado durante o treinamento.
+
+A camada de entrada recebe os dados brutos, como pixels de uma imagem ou palavras de um texto. As camadas ocultas realizam transformações progressivamente mais abstratas sobre esses dados. A camada de saída produz o resultado final, que pode ser uma classificação, um valor numérico ou uma sequência de tokens.
+
+O processo de treinamento utiliza um algoritmo chamado retropropagação (backpropagation), combinado com gradiente descendente. O modelo faz uma previsão, calcula o erro em relação ao resultado esperado e ajusta os pesos das conexões na direção que reduz esse erro. Esse processo é repetido milhões de vezes sobre grandes conjuntos de dados.
+
+
+APRENDIZADO PROFUNDO E TRANSFORMERS
+
+O aprendizado profundo (Deep Learning) refere-se ao uso de redes neurais com muitas camadas ocultas, capazes de aprender representações hierárquicas de dados. Enquanto camadas iniciais podem detectar bordas em imagens, camadas mais profundas reconhecem formas, objetos e contextos complexos.
+
+A arquitetura Transformer, introduzida no artigo "Attention is All You Need" em 2017 por pesquisadores do Google, revolucionou o processamento de linguagem natural. O mecanismo central, chamado atenção (attention), permite que o modelo pese a importância relativa de diferentes partes da entrada ao gerar cada parte da saída.
+
+Os Transformers são a base dos grandes modelos de linguagem (Large Language Models, LLMs) como GPT, BERT, T5 e seus sucessores. Esses modelos são pré-treinados em enormes corpora de texto usando objetivos como predição do próximo token ou preenchimento de lacunas, e depois ajustados para tarefas específicas por meio de fine-tuning.
+
+
+EMBEDDINGS E REPRESENTAÇÃO SEMÂNTICA
+
+Embeddings são representações numéricas densas de objetos como palavras, frases ou documentos em um espaço vetorial de alta dimensão. A propriedade fundamental dos embeddings é que itens semanticamente similares ficam próximos nesse espaço, enquanto itens diferentes ficam distantes.
+
+O modelo Word2Vec, desenvolvido pelo Google em 2013, foi um dos primeiros a demonstrar essa propriedade de forma marcante. Nesse espaço, a operação vetorial "rei - homem + mulher" resulta em um vetor próximo ao de "rainha", capturando relações semânticas e analógicas entre palavras.
+
+Modelos modernos de embeddings de sentenças, como os da família Sentence-BERT e os modelos da biblioteca sentence-transformers, produzem representações que capturam o significado completo de frases e parágrafos. Esses embeddings são amplamente usados em sistemas de busca semântica, clustering de documentos e recuperação de informação.
+
+
+RECUPERAÇÃO DE INFORMAÇÃO E BUSCA SEMÂNTICA
+
+A recuperação de informação (Information Retrieval, IR) é o processo de obter recursos relevantes de uma coleção de informações em resposta a uma consulta. Sistemas tradicionais de busca, como os baseados em TF-IDF e BM25, operam sobre correspondência lexical — buscam documentos que contêm exatamente as mesmas palavras da consulta.
+
+A busca semântica supera essa limitação ao trabalhar no espaço de embeddings. Em vez de comparar palavras literais, o sistema compara o significado das consultas e dos documentos. Isso permite encontrar resultados relevantes mesmo quando a terminologia é diferente — por exemplo, uma busca por "automóvel" pode retornar documentos sobre "carro" ou "veículo".
+
+O processo típico de busca semântica envolve três etapas. Primeiro, indexação: os documentos são divididos em chunks e cada chunk é transformado em um vetor de embedding, que é armazenado em um banco de dados vetorial. Segundo, consulta: a pergunta do usuário é transformada no mesmo espaço de embeddings. Terceiro, recuperação: o sistema identifica os chunks cujos vetores são mais similares ao vetor da consulta, usando métricas como similaridade de cosseno.
+
+
+BANCOS DE DADOS VETORIAIS
+
+Bancos de dados vetoriais são sistemas especializados no armazenamento e busca eficiente de vetores de alta dimensão. Diferente de bancos de dados tradicionais que buscam por correspondência exata, os bancos vetoriais são otimizados para encontrar os vizinhos mais próximos (Approximate Nearest Neighbor, ANN) de um vetor de consulta.
+
+O Qdrant é um banco de dados vetorial de código aberto desenvolvido em Rust, projetado para alto desempenho e escalabilidade. Ele suporta múltiplas métricas de distância, incluindo similaridade de cosseno, distância Euclidiana e produto escalar. Oferece filtragem por metadados, o que permite combinar busca semântica com filtros estruturados.
+
+Outros bancos de dados vetoriais populares incluem Pinecone (serviço gerenciado na nuvem), Weaviate (com suporte nativo a múltiplos modelos de embedding), Chroma (focado em simplicidade para prototipagem) e pgvector (extensão do PostgreSQL para busca vetorial).
+
+A escolha do banco de dados vetorial depende de fatores como escala esperada, latência requerida, necessidade de filtros complexos e preferência por solução gerenciada versus auto-hospedada.
+
+
+GERAÇÃO AUMENTADA POR RECUPERAÇÃO (RAG)
+
+A Geração Aumentada por Recuperação (Retrieval-Augmented Generation, RAG) é uma técnica que combina a recuperação de informação com a geração de texto por modelos de linguagem. O objetivo é superar limitações dos LLMs, como conhecimento desatualizado, alucinações e falta de informações específicas de domínio.
+
+No fluxo RAG completo, quando o usuário faz uma pergunta, o sistema primeiro recupera os documentos ou chunks mais relevantes da base de conhecimento usando busca semântica. Em seguida, esses documentos são fornecidos como contexto para o LLM junto com a pergunta original. O modelo então gera uma resposta fundamentada nesses documentos, em vez de depender apenas do conhecimento adquirido no pré-treinamento.
+
+As vantagens do RAG incluem: respostas mais precisas e verificáveis, capacidade de citar fontes, atualização fácil da base de conhecimento sem retreinamento do modelo, e melhor comportamento em domínios especializados. Os desafios incluem a qualidade da recuperação (documentos irrelevantes podem confundir o modelo) e o custo de processar grandes contextos.
+
+
+CHUNKING DE DOCUMENTOS
+
+O chunking é o processo de dividir documentos longos em pedaços menores (chunks) para indexação em bancos vetoriais. A qualidade do chunking tem impacto direto na qualidade da recuperação.
+
+Estratégias comuns de chunking incluem: divisão por tamanho fixo (simples mas pode quebrar sentenças no meio), divisão por sentenças (respeita fronteiras linguísticas), divisão por parágrafos (mantém coesão temática), e divisão recursiva com overlap (uma combinação que tenta equilibrar tamanho e contexto).
+
+O overlap entre chunks é uma técnica importante para evitar perda de contexto nas bordas. Se o chunk anterior termina no meio de uma explicação e o próximo começa sem contexto, a informação pode se perder. Com overlap, as últimas N palavras do chunk anterior aparecem também no início do próximo chunk, garantindo continuidade.
+
+O tamanho ideal de chunk depende do modelo de embedding usado, da natureza do documento e do tipo de consultas esperadas. Chunks muito curtos podem não ter contexto suficiente; chunks muito longos podem diluir o sinal semântico com informações irrelevantes.
+
+
+AVALIAÇÃO DE SISTEMAS DE BUSCA SEMÂNTICA
+
+Avaliar a qualidade de um sistema de busca semântica é fundamental para garantir sua utilidade. As principais métricas incluem precisão (proportion of retrieved documents that are relevant), recall (proporção de documentos relevantes que foram recuperados) e MRR (Mean Reciprocal Rank), que mede a posição média do primeiro resultado relevante.
+
+Para sistemas RAG completos, avaliações adicionais medem a fidelidade da resposta gerada em relação aos documentos recuperados, e a relevância da resposta em relação à pergunta original. Frameworks como RAGAS (RAG Assessment) automatizam essa avaliação usando um LLM como juiz.
+
+A criação de conjuntos de teste de qualidade é um desafio por si só: requer anotadores humanos que definam quais documentos são relevantes para cada consulta de teste, ou o uso de técnicas automáticas para gerar pares pergunta-resposta a partir dos documentos.
+
+
+TENDÊNCIAS E FUTURO DA BUSCA SEMÂNTICA
+
+O campo está evoluindo rapidamente em diversas direções. Modelos de embedding multimodal, como o CLIP, permitem busca semântica que cruza modalidades — encontrar imagens a partir de descrições textuais ou vice-versa. Isso abre possibilidades para sistemas de busca mais ricos e naturais.
+
+A busca híbrida combina busca semântica com busca lexical tradicional, aproveitando os pontos fortes de cada abordagem. O BM25 é eficaz para termos técnicos e nomes próprios; os embeddings capturam melhor o significado e a intenção. Sistemas como o Elasticsearch e o Qdrant suportam nativamente essa combinação.
+
+Modelos de reranking, aplicados após a recuperação inicial, refinam a ordem dos resultados usando modelos mais pesados que analisam o par (consulta, documento) em conjunto, em vez de apenas comparar vetores independentes. Isso melhora significativamente a qualidade final dos resultados.
+
+Com o avanço dos LLMs multimodais e a integração cada vez maior entre recuperação e geração, os sistemas RAG tendem a se tornar mais sofisticados, capazes de raciocinar sobre múltiplos documentos, fazer perguntas de esclarecimento e atualizar sua base de conhecimento de forma incremental.
