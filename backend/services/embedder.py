@@ -6,7 +6,7 @@ import os
 import httpx
 
 HF_API_URL = (
-    "https://api-inference.huggingface.co/pipeline/feature-extraction/"
+    "https://router.huggingface.co/hf-inference/models/"
     "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 )
 BATCH_SIZE = 32
@@ -23,7 +23,7 @@ def _get_token() -> str:
 
 async def _embed_batch(client: httpx.AsyncClient, texts: list[str]) -> list[list[float]]:
     headers = {"Authorization": f"Bearer {_get_token()}"}
-    payload = {"inputs": texts, "options": {"wait_for_model": True}}
+    payload = {"inputs": texts}
 
     for attempt in range(1, MAX_RETRIES + 1):
         response = await client.post(HF_API_URL, json=payload, headers=headers, timeout=60.0)
